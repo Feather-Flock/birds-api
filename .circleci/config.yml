@@ -57,7 +57,6 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-<<<<<<< HEAD
           command: bundle exec rails db:create db:schema:load --trace
     
       - ruby/rspec-test
@@ -71,13 +70,3 @@ workflows:
       - test:         # Then run test,
           requires:   # Test requires that build passes for it to run.
             - build   # Finally, run the build job.
-=======
-          command: bin/rails db:{create,migrate} --trace
-      - run:
-          name: Run rspec in parallel
-          command: bundle exec rspec
-      # Save test results for timing analysis
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test_results
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
->>>>>>> bb70f9fd18778a62d29552578bd9835c515048ef
