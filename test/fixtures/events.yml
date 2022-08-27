@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  time: 2022-08-27 08:19:21
+  date: 2022-08-27
+  lat: 1.5
+  lng: 1.5
+
+two:
+  title: MyString
+  description: MyString
+  time: 2022-08-27 08:19:21
+  date: 2022-08-27
+  lat: 1.5
+  lng: 1.5
