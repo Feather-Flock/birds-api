@@ -5,7 +5,7 @@ module Types
     field :id, ID, null: false
     field :title, String
     field :description, String
-    field :time, Types::TimeType
+    field :time, String
     field :date, GraphQL::Types::ISO8601Date
     field :lat, Float
     field :lng, Float
