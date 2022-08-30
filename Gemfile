@@ -49,6 +49,8 @@ group :development, :test do
   gem 'figaro'
   gem 'webmock'
   gem 'vcr'
+  gem "graphiql-rails"
+
 end
 
 group :development do

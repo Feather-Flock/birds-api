@@ -15,5 +15,7 @@ module Types
     field :city, String
     field :state, String
     field :zip, Integer
+    field :host, Integer
+    
   end
 end
