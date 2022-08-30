@@ -46,6 +46,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'shoulda-matchers'
   gem 'rspec_junit_formatter'
+  gem "graphiql-rails"
 end
 
 group :development do
