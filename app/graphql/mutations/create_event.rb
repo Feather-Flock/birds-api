@@ -2,7 +2,7 @@ class Mutations::CreateEvent < Mutations::BaseMutation
   argument :title, String, required: true
   argument :description, String, required: true
   argument :time, String, required: true
-  argument :date, GraphQL::Types::ISO8601Date, required: true
+  argument :date, String, required: true
   # argument :lat, Float, required: true
   # argument :lng, Float, required: true
   argument :address, String, required: true
@@ -16,7 +16,7 @@ class Mutations::CreateEvent < Mutations::BaseMutation
 
   def resolve(title:, description:, time:, date:, address:, city:, state:, zip:, host:)
     addy = "#{address} #{city} #{state} #{zip}"
-    cords = Mapfacade.create_cords(addy)
+    cords = MapFacade.create_cords(addy)
     event = Event.new(title: title, description: description, time: time, date: date, lat: cords[:lat], lng: cords[:lng], address: address, city: city, state: state, zip: zip, host: host)
     if event.save
       {
