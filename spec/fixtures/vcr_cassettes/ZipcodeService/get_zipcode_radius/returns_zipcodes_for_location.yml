@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://zipcodeapi.com/rest/yCNr48diBK8b9hWSMKZrPf0MsVk4Tgm6kaiOm5OPFkHqvxq0zeRSVNEiGfmkOTAZ/radius.json/80516/5/miles?minimal
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.5.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Aug 2022 20:33:59 GMT
+      Server:
+      - Apache/2.4.54 () OpenSSL/1.0.2k-fips
+      X-Powered-By:
+      - PHP/7.4.30
+      Upgrade:
+      - h2,h2c
+      Connection:
+      - Upgrade
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '51'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"zip_codes":["80026","80516","80514"]}'
+  recorded_at: Tue, 30 Aug 2022 20:33:59 GMT
+recorded_with: VCR 6.1.0
