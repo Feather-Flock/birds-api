@@ -17,7 +17,7 @@ class Mutations::CreateEvent < Mutations::BaseMutation
   def resolve(title:, description:, time:, date:, address:, city:, state:, zip:, host:)
     addy = "#{address} #{city} #{state} #{zip}"
     cords = MapFacade.create_cords(addy)
-    event = Event.new(title: title, description: description, time: time, date: date, lat: cords[:lat], lng: cords[:lng], address: address, city: city, state: state, zip: zip, host: host)
+    event = Event.new(title: title, description: description, time: time, date: date, lat: cords[:lat], lng: cords[:lng], address: address, city: city, state: state, zip: zip, host: host.to_i)
     if event.save
       {
         event: event,
