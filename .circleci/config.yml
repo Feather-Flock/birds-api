@@ -43,6 +43,7 @@ jobs:
       PGUSER: circleci-demo-ruby
       PGPASSWORD: ""
       RAILS_ENV: test
+      api_key: ENV['map_api_key']
 
     steps:
       - checkout
