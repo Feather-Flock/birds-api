@@ -8,7 +8,7 @@ RSpec.describe Mutations::CreateUserEvent, type: :request do
       @event1 = @user1.events.create(title: "Lunch at Denison Park", description: "We are getting together for a meet-and-greet at Denison Park.", time: '18:00:00', date: '2022-10-09', lat: "39.733", lng: "-104.904", address: "1105 Quebec St", city: "Denver", state: "CO", zip: 80220, host: @user1.id)
 
       expect(UserEvent.count).to eq(1)
-      post '/graphql', params: { query: query }
+      post '/graphql', params: { query: query(user_id: @user2.id, event_id: @event1.id) }
       expect(UserEvent.count).to eq(2)
       expect(Event.last.rsvps).to eq(2)
     end 
@@ -18,7 +18,7 @@ RSpec.describe Mutations::CreateUserEvent, type: :request do
       @user2 = User.create(user_name: "Pearl", email: "pearl@universe.com", image: "https://user-images.githubusercontent.com/99059063/187045202-04577eee-4d6b-4a6e-8d71-5b96aef2f6fc.png" , description: "I am a non-binary single parent looking for other enby parents.", zip_code: 80220)
       @event1 = @user1.events.create(title: "Lunch at Denison Park", description: "We are getting together for a meet-and-greet at Denison Park.", time: '18:00:00', date: '2022-10-09', lat: "39.733", lng: "-104.904", address: "1105 Quebec St", city: "Denver", state: "CO", zip: 80220, host: @user1.id)
 
-      post '/graphql', params: { query: query }
+      post '/graphql', params: { query: query(user_id: @user2.id, event_id: @event1.id) }
       json = JSON.parse(response.body)
       data = json['data']['createUserEvent']
       expect(data["userEvent"]).to include(
@@ -28,12 +28,12 @@ RSpec.describe Mutations::CreateUserEvent, type: :request do
     end
   end 
 
-  def query
+  def query(user_id:, event_id:)
     <<~GQL
       mutation {
         createUserEvent(input: {
-          userId: "#{@user2.id}",
-          eventId: "#{@event1.id}"
+          userId: #{@user2.id},
+          eventId: #{@event1.id}
        }) { userEvent {
           userId
           eventId
