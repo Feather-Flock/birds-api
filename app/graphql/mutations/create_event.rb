@@ -3,8 +3,6 @@ class Mutations::CreateEvent < Mutations::BaseMutation
   argument :description, String, required: true
   argument :time, String, required: true
   argument :date, String, required: true
-  # argument :lat, Float, required: true
-  # argument :lng, Float, required: true
   argument :address, String, required: true
   argument :city, String, required: true
   argument :state, String, required: true
