@@ -17,5 +17,6 @@ module Types
     field :zip, Integer
     field :host, Integer
 
+    field :user, Types::UserType, null: false
   end
 end
