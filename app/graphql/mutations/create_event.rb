@@ -8,8 +8,6 @@ class Mutations::CreateEvent < Mutations::BaseMutation
   argument :state, String, required: true
   argument :zip, Integer, required: true
   argument :host, Integer, required: true
-  #argument :user_id, Integer, required: true
-  #user id to find user
 
   field :event, Types::EventType, null: false
   field :user_event, Types::UserEventType, null: false
