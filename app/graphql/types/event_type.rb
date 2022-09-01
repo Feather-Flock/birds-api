@@ -6,7 +6,7 @@ module Types
     field :title, String
     field :description, String
     field :time, String
-    field :date, GraphQL::Types::ISO8601Date
+    field :date, String
     field :lat, Float
     field :lng, Float
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
@@ -16,6 +16,6 @@ module Types
     field :state, String
     field :zip, Integer
     field :host, Integer
-
+    field :rsvps, Integer
   end
 end
