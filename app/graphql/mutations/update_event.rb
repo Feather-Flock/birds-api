@@ -13,11 +13,9 @@ class Mutations::UpdateEvent < Mutations::BaseMutation
   field :event, Types::EventType, null: false
   field :errors, [String], null: false
 
-  def resolve(id:, title:, description:, time:, date:, address:, city:, state:, zip:, host:)
-    location = "#{address} #{city} #{state} #{zip}"
-    cords = MapFacade.create_cords(location)
+  def resolve(id:, **arguments)
     event = Event.find(id)
-      if event.update(title: title, description: description, time: time, date: date, lat: cords[:lat], lng: cords[:lng], address: address, city: city, state: state, zip: zip, host: host.to_i)
+      if event.update(arguments)
       { event: event }
     else
       { errors: event.errors.full_messages }
