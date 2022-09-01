@@ -19,11 +19,11 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 01 Sep 2022 13:36:33 GMT
+      - Thu, 01 Sep 2022 15:38:51 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1075'
+      - '1074'
       Access-Control-Allow-Methods:
       - OPTIONS,GET,POST
       Access-Control-Allow-Origin:
@@ -35,13 +35,13 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Thu, 01 Sep 2022 13:36:33 GMT
+      - Thu, 01 Sep 2022 15:38:51 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
       - '0'
       Set-Cookie:
-      - JSESSIONID=072678E8029BC89863FCAE1294D3F79D; Path=/; HttpOnly
+      - JSESSIONID=E560FFFE565A0F085D8C4DEA5B1BA411; Path=/; HttpOnly
       Status:
       - success
       Transactionweight:
@@ -51,6 +51,6 @@ http_interactions:
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2022 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
         2022 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"1105
-        Quebec St Denver CO 80220"},"locations":[{"street":"1105 Quebec St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80220","geocodeQualityCode":"L1AAA","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"L","linkId":"rnr7474432|i70227594","unknownInput":"","type":"s","latLng":{"lat":39.732989,"lng":-104.90346},"displayLatLng":{"lat":39.73299,"lng":-104.90366},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<map_api_key>&type=map&size=225,160&locations=39.732989,-104.90346|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-514108286"}]}]}'
-  recorded_at: Thu, 01 Sep 2022 13:36:33 GMT
+        Quebec St Denver CO 80220"},"locations":[{"street":"1105 Quebec St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80220","geocodeQualityCode":"L1AAA","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"L","linkId":"rnr7474432|i70227594","unknownInput":"","type":"s","latLng":{"lat":39.732989,"lng":-104.90346},"displayLatLng":{"lat":39.73299,"lng":-104.90366},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<map_api_key>&type=map&size=225,160&locations=39.732989,-104.90346|marker-sm-50318A-1&scalebar=true&zoom=15&rand=703292524"}]}]}'
+  recorded_at: Thu, 01 Sep 2022 15:38:51 GMT
 recorded_with: VCR 6.1.0
