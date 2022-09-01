@@ -7,7 +7,9 @@ RSpec.describe Mutations::CreateEvent, type: :request do
                          image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80_220)
       expect(Event.count).to eq(0)
       expect(UserEvent.count).to eq(0)
+
       post '/graphql', params: { query: query(user_id: user.id) }
+
       expect(Event.count).to eq(1)
       expect(UserEvent.count).to eq(1)
       expect(Event.last.rsvps).to eq(1)
@@ -17,8 +19,10 @@ RSpec.describe Mutations::CreateEvent, type: :request do
       user = User.create(user_name: 'Garnet', email: 'garnet@universe.com',
                          image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80_220)
       post '/graphql', params: { query: query(user_id: user.id) }
+
       json = JSON.parse(response.body)
       data = json['data']['createEvent']
+
       expect(data['event']).to include(
         'title' => 'Park hangout',
         'description' => 'Single dad hanging with 7 year old son and friends at park',
@@ -39,6 +43,7 @@ RSpec.describe Mutations::CreateEvent, type: :request do
                          image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80_220)
       post '/graphql', params: { query: sad_path_query(user_id: user.id) }
       json = JSON.parse(response.body)
+
       expect(json['errors'].first['message']).to eq("Argument 'date' on InputObject 'CreateEventInput' is required. Expected type String!")
     end
   end

@@ -11,6 +11,7 @@ class Mutations::CreateEvent < Mutations::BaseMutation
   # argument :user_id, Integer, required: true
   # user id to find user
 
+
   field :event, Types::EventType, null: false
   field :user_event, Types::UserEventType, null: false
   field :errors, [String], null: false
