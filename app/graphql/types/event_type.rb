@@ -16,7 +16,6 @@ module Types
     field :state, String
     field :zip, Integer
     field :host, Integer
-
-    field :user, Types::UserType, null: false
+    field :rsvps, Integer
   end
 end
