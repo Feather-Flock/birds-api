@@ -1,27 +1,25 @@
-
-class Mutations::CreateUser < Mutations::BaseMutation 
-  argument :user_name, String, required: true 
-  argument :email, String, required: true 
+class Mutations::CreateUser < Mutations::BaseMutation
+  argument :user_name, String, required: true
+  argument :email, String, required: true
   argument :description, String, required: false
-  argument :image, String, required: false 
-  argument :zip_code, Integer, required: true 
+  argument :image, String, required: false
+  argument :zip_code, Integer, required: true
 
-  field :user, Types::UserType, null: false 
+  field :user, Types::UserType, null: false
   field :errors, [String], null: false
 
   def resolve(user_name:, email:, description:, image:, zip_code:)
     user = User.new(user_name: user_name, email: email, description: description, image: image, zip_code: zip_code)
-    if user.save 
+    if user.save
       {
-        user: user, 
+        user: user,
         errors: []
       }
-    else 
+    else
       {
-        user: nil, 
+        user: nil,
         errors: user.errors.full_messages
       }
-    end 
+    end
   end
-end 
-
+end

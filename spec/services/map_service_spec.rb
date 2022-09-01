@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MapService do
   describe 'get_cords' do
     it 'returns lat and long cords', :vcr do
-      cords = MapService.get_cords("Denver,CO")
+      cords = MapService.get_cords('Denver,CO')
 
       expect(cords[:results]).to be_an(Array)
 
