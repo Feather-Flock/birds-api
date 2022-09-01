@@ -17,5 +17,14 @@ module Types
     field :zip, Integer
     field :host, Integer
     field :rsvps, Integer
+
+    field :creator, Types::UserType, null: false do 
+      argument :id, Integer, required: true
+    end
+
+    def creator(id:)
+      event = Event.find(id)
+      User.find(event.host)
+    end
   end
 end
