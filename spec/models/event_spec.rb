@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Event, type: :model do 
+RSpec.describe Event, type: :model do
   it { should have_many(:user_events) }
   it { should have_many(:users).through(:user_events) }
   it { should validate_presence_of(:title) }

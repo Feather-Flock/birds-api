@@ -7,7 +7,6 @@ RSpec.describe ZipcodeFacade do
 
       expect(data).to be_an(Array)
       expect(data.count).to eq(3)
-
     end
   end
 end

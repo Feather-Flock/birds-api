@@ -1,10 +1,10 @@
 class ZipcodeService
   def self.conn
-    Faraday.new("https://zipcodeapi.com")
+    Faraday.new('https://zipcodeapi.com')
   end
 
   def self.api_key
-    ENV["zipcode_api_key"]
+    ENV['zipcode_api_key']
   end
 
   def self.get_zipcode_radius(location, distance)

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MapFacade do
   describe 'create_cords' do
     it 'returns lat and long cords', :vcr do
-      cords = MapFacade.create_cords("Denver,CO")
+      cords = MapFacade.create_cords('Denver,CO')
 
       expect(cords).to include :lat, :lng
 
