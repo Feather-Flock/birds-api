@@ -60,7 +60,6 @@ RSpec.describe Mutations::UpdateEvent, type: :request do
     end
   end
 
-
   def query(id:, user_id:)
     <<~GQL
       mutation {
@@ -75,22 +74,22 @@ RSpec.describe Mutations::UpdateEvent, type: :request do
           state: "CO",
           zip: 80220,
           host: #{user_id}
-       }) { event {
-          title
-          description
-          time
-          date
-          address
-          city
-          state
-          zip
-          lat
-          lng
-          host
+         }) { event {
+            title
+            description
+            time
+            date
+            address
+            city
+            state
+            zip
+            lat
+            lng
+            host
+          }
         }
       }
-    }
-  GQL
+    GQL
   end
 
   def update_query(id:, user_id:)
