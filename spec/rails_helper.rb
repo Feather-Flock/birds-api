@@ -44,6 +44,7 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
   config.filter_sensitive_data('<map_api_key>') { ENV['map_api_key'] }
+  config.filter_sensitive_data('<zipcode_api_key>') { ENV['zipcode_api_key'] }
   config.configure_rspec_metadata!
 end
 

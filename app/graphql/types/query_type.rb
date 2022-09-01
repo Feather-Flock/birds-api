@@ -2,6 +2,15 @@ module Types
   class QueryType < Types::BaseObject
     field :users, [Types::UserType], null: false
 
+    field :event, Types::EventType, null: false do 
+      argument :id, Integer, required: true
+    end
+
+    def event(id:)
+      Event.find(id)
+    end
+
+
     def users
       User.all
     end
