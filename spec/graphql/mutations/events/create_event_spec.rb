@@ -5,8 +5,11 @@ RSpec.describe Mutations::CreateEvent, type: :request do
     it 'creates an event', :vcr do
       user = User.create(user_name: "Garnet", email: "garnet@universe.com", image: "https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png" , description: "We are a married lesbian couple with kids. We love to play sports and go on adventures!" , zip_code: 80220)
       expect(Event.count).to eq(0)
+      expect(UserEvent.count).to eq(0)
       post '/graphql', params: { query: query(user_id: user.id) }
       expect(Event.count).to eq(1)
+      expect(UserEvent.count).to eq(1)
+      expect(Event.last.rsvps).to eq(1)
     end
 
     it 'returns an event', :vcr do
@@ -17,7 +20,7 @@ RSpec.describe Mutations::CreateEvent, type: :request do
       expect(data["event"]).to include(
         "title"       => "Park hangout",
         "description" => "Single dad hanging with 7 year old son and friends at park",
-        "time"        => "2000-01-01 12:00:00 UTC",
+        "time"        => "12:00:00",
         "date"        => "2022-09-23",
         "address"     => "2455 Bryant Street",
         "city"        => "Denver",
