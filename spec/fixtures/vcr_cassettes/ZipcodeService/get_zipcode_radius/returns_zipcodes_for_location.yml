@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 01 Sep 2022 00:52:32 GMT
+      - Thu, 01 Sep 2022 13:45:02 GMT
       Server:
       - Apache/2.4.54 () OpenSSL/1.0.2k-fips
       X-Powered-By:
@@ -37,5 +37,5 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"zip_codes":["80026","80516","80514"]}'
-  recorded_at: Thu, 01 Sep 2022 00:52:32 GMT
+  recorded_at: Thu, 01 Sep 2022 13:45:02 GMT
 recorded_with: VCR 6.1.0
