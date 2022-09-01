@@ -19,7 +19,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 30 Aug 2022 22:49:42 GMT
+      - Thu, 01 Sep 2022 00:38:07 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -35,13 +35,13 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Tue, 30 Aug 2022 22:49:42 GMT
+      - Thu, 01 Sep 2022 00:38:07 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
       - '0'
       Set-Cookie:
-      - JSESSIONID=078CD4C9A392E1FECE8C83E8C7E90EE2; Path=/; HttpOnly
+      - JSESSIONID=27E64992190932D118FE19DBCA19509A; Path=/; HttpOnly
       Status:
       - success
       Transactionweight:
@@ -51,6 +51,6 @@ http_interactions:
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2022 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
         2022 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"2455
-        Bryant Street Denver CO 80211"},"locations":[{"street":"2455 Bryant St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80211-4815","geocodeQualityCode":"P1AAA","geocodeQuality":"POINT","dragPoint":false,"sideOfStreet":"L","linkId":"r49327361|p193309648|n250618865","unknownInput":"","type":"s","latLng":{"lat":39.753163,"lng":-105.019169},"displayLatLng":{"lat":39.753169,"lng":-105.019519},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<map_api_key>&type=map&size=225,160&locations=39.753163,-105.019169|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-188334198"}]}]}'
-  recorded_at: Tue, 30 Aug 2022 22:49:42 GMT
+        Bryant Street Denver CO 80211"},"locations":[{"street":"2455 Bryant St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80211-4815","geocodeQualityCode":"P1AAA","geocodeQuality":"POINT","dragPoint":false,"sideOfStreet":"L","linkId":"r49327361|p193309648|n250618865","unknownInput":"","type":"s","latLng":{"lat":39.753163,"lng":-105.019169},"displayLatLng":{"lat":39.753169,"lng":-105.019519},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<map_api_key>&type=map&size=225,160&locations=39.753163,-105.019169|marker-sm-50318A-1&scalebar=true&zoom=15&rand=1855326154"}]}]}'
+  recorded_at: Thu, 01 Sep 2022 00:38:07 GMT
 recorded_with: VCR 6.1.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://zipcodeapi.com/rest/yCNr48diBK8b9hWSMKZrPf0MsVk4Tgm6kaiOm5OPFkHqvxq0zeRSVNEiGfmkOTAZ/radius.json/80516/5/miles?minimal
+    uri: https://zipcodeapi.com/rest//radius.json/80516/5/miles?minimal
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 30 Aug 2022 20:33:59 GMT
+      - Thu, 01 Sep 2022 00:38:07 GMT
       Server:
       - Apache/2.4.54 () OpenSSL/1.0.2k-fips
       X-Powered-By:
@@ -37,5 +37,5 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"zip_codes":["80026","80516","80514"]}'
-  recorded_at: Tue, 30 Aug 2022 20:33:59 GMT
+  recorded_at: Thu, 01 Sep 2022 00:38:07 GMT
 recorded_with: VCR 6.1.0
