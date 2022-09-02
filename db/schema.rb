@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_215954) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_02_201043) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_215954) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "zip_code"
+    t.float "lat"
+    t.float "lng"
   end
 
   add_foreign_key "user_events", "events"

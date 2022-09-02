@@ -4,7 +4,7 @@ RSpec.describe Mutations::CreateEvent, type: :request do
   describe '.resolve' do
     it 'creates an event', :vcr do
       user = User.create(user_name: 'Garnet', email: 'garnet@universe.com',
-                         image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80_220)
+                         image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80220, lat: '39.73', lng: '-104.91')
       expect(Event.count).to eq(0)
       expect(UserEvent.count).to eq(0)
 
@@ -17,7 +17,7 @@ RSpec.describe Mutations::CreateEvent, type: :request do
 
     it 'returns an event', :vcr do
       user = User.create(user_name: 'Garnet', email: 'garnet@universe.com',
-                         image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80_220)
+                         image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80220, lat: '39.73', lng: '-104.91')
       post '/graphql', params: { query: query(user_id: user.id) }
 
       json = JSON.parse(response.body)
@@ -31,7 +31,7 @@ RSpec.describe Mutations::CreateEvent, type: :request do
         'address' => '2455 Bryant Street',
         'city' => 'Denver',
         'state' => 'CO',
-        'zip' => 80_211,
+        'zip' => 80211,
         'host' => user.id
       )
     end
@@ -40,7 +40,7 @@ RSpec.describe Mutations::CreateEvent, type: :request do
   describe 'sad path' do
     it 'will not create an event if argument is missing', :vcr do
       user = User.create(user_name: 'Garnet', email: 'garnet@universe.com',
-                         image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80_220)
+                         image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80220, lat: '39.73', lng: '-104.91')
       post '/graphql', params: { query: sad_path_query(user_id: user.id) }
       json = JSON.parse(response.body)
 

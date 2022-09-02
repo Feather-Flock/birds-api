@@ -4,7 +4,7 @@ RSpec.describe Types::UserType, type: :request do
   describe '.user(id:)' do
     it 'returns all details of a user' do
       @user = User.create(user_name: 'Garnet', email: 'garnet@universe.com', image: 'https://image.png',
-                          description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80_220)
+                          description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80220, lat: '39.73', lng: '-104.91')
       post '/graphql', params: { query: query }
       json = JSON.parse(response.body)
       data = json['data']['user']
@@ -22,11 +22,11 @@ RSpec.describe Types::UserType, type: :request do
   describe '.users' do
     it 'returns all users' do
       @user1 = User.create(user_name: 'Garnet', email: 'garnet@universe.com',
-                           image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80_220)
+                           image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80220, lat: '39.73', lng: '-104.91')
       @user2 = User.create(user_name: 'Pearl', email: 'pearl@universe.com',
-                           image: 'https://user-images.githubusercontent.com/99059063/187045202-04577eee-4d6b-4a6e-8d71-5b96aef2f6fc.png', description: 'I am a non-binary single parent looking for other enby parents.', zip_code: 80_220)
+                           image: 'https://user-images.githubusercontent.com/99059063/187045202-04577eee-4d6b-4a6e-8d71-5b96aef2f6fc.png', description: 'I am a non-binary single parent looking for other enby parents.', zip_code: 80220, lat: '39.73', lng: '-104.91')
       @user3 = User.create(user_name: 'Amethyst', email: 'amethyst@universe.com',
-                           image: 'https://user-images.githubusercontent.com/99059063/187045161-3338af1c-49c6-49fa-a6f3-f850f4f824cd.jpg', description: 'Single queer mom helping raise a 10 year old boy in the Denver area.', zip_code: 80_220)
+                           image: 'https://user-images.githubusercontent.com/99059063/187045161-3338af1c-49c6-49fa-a6f3-f850f4f824cd.jpg', description: 'Single queer mom helping raise a 10 year old boy in the Denver area.', zip_code: 80220, lat: '39.73', lng: '-104.91')
       post '/graphql', params: { query: query_two }
       json = JSON.parse(response.body)
       data = json['data']['users']
@@ -35,19 +35,19 @@ RSpec.describe Types::UserType, type: :request do
                             'email' => 'garnet@universe.com',
                             'description' => 'We are a married lesbian couple with kids. We love to play sports and go on adventures!',
                             'image' => 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png',
-                            'zipCode' => 80_220 },
+                            'zipCode' => 80220 },
                           { 'id' => "#{@user2.id}",
                             'userName' => 'Pearl',
                             'email' => 'pearl@universe.com',
                             'description' => 'I am a non-binary single parent looking for other enby parents.',
                             'image' => 'https://user-images.githubusercontent.com/99059063/187045202-04577eee-4d6b-4a6e-8d71-5b96aef2f6fc.png',
-                            'zipCode' => 80_220 },
+                            'zipCode' => 80220 },
                           { 'id' => "#{@user3.id}",
                             'userName' => 'Amethyst',
                             'email' => 'amethyst@universe.com',
                             'description' => 'Single queer mom helping raise a 10 year old boy in the Denver area.',
                             'image' => 'https://user-images.githubusercontent.com/99059063/187045161-3338af1c-49c6-49fa-a6f3-f850f4f824cd.jpg',
-                            'zipCode' => 80_220 }])
+                            'zipCode' => 80220 }])
     end
   end
 
