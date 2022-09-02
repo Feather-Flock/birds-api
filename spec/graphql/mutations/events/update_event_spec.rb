@@ -45,7 +45,6 @@ RSpec.describe Mutations::UpdateEvent, type: :request do
         "host"        => user.id
       )
     end
-  end
 
   describe 'sad path' do
     it 'will not update event without event id', :vcr do
@@ -153,5 +152,6 @@ RSpec.describe Mutations::UpdateEvent, type: :request do
         }
       }
     GQL
+    end
   end
 end
