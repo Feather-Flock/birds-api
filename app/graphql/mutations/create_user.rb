@@ -9,7 +9,8 @@ class Mutations::CreateUser < Mutations::BaseMutation
   field :errors, [String], null: false
 
   def resolve(user_name:, email:, description:, image:, zip_code:)
-    user = User.new(user_name: user_name, email: email, description: description, image: image, zip_code: zip_code)
+    cords = MapFacade.create_cords(zip_code)
+    user = User.new(user_name: user_name, email: email, description: description, image: image, zip_code: zip_code, lat: cords[:lat], lng: cords[:lng])
     if user.save
       {
         user: user,

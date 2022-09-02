@@ -10,6 +10,8 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :zip_code, Integer
+    field :lat, Float
+    field :lng, Float
 
     field :rsvpd_events, [Types::EventType], null: false do
       argument :id, ID, required: true
@@ -17,7 +19,7 @@ module Types
 
     def rsvpd_events(id:)
       user = User.find(id)
-      user.events
+      user.events.where('host != ?', user.id)
     end
 
     field :user_events, [Types::EventType], null: false do
@@ -36,7 +38,8 @@ module Types
 
     def near_events(id:)
       user = User.find(id)
-      Event.where('zip = ?', user.zip_code)
+      events = Event.where('zip = ?', user.zip_code)
+      events.where('host != ?', user.id)
     end
   end
 end
