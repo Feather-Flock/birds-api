@@ -10,46 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_901_000_542) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_02_201043) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'events', force: :cascade do |t|
-    t.string 'title'
-    t.string 'description'
-    t.string 'time'
-    t.date 'date'
-    t.float 'lat'
-    t.float 'lng'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'address'
-    t.string 'city'
-    t.string 'state'
-    t.integer 'zip'
-    t.integer 'host'
-    t.integer 'rsvps', default: 0
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "time"
+    t.date "date"
+    t.float "lat"
+    t.float "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    t.integer "host"
+    t.integer "rsvps", default: 0
   end
 
-  create_table 'user_events', force: :cascade do |t|
-    t.bigint 'user_id', null: false
-    t.bigint 'event_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['event_id'], name: 'index_user_events_on_event_id'
-    t.index ['user_id'], name: 'index_user_events_on_user_id'
+  create_table "user_events", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_user_events_on_event_id"
+    t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email'
-    t.string 'user_name'
-    t.string 'image'
-    t.string 'description'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer 'zip_code'
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "user_name"
+    t.string "image"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "zip_code"
+    t.float "lat"
+    t.float "lng"
   end
 
-  add_foreign_key 'user_events', 'events'
-  add_foreign_key 'user_events', 'users'
+  add_foreign_key "user_events", "events"
+  add_foreign_key "user_events", "users"
 end
