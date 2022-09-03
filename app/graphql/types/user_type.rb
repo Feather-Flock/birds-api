@@ -41,5 +41,23 @@ module Types
       events = Event.where('zip = ?', user.zip_code)
       events.where('host != ?', user.id)
     end
+
+    field :user_defined, [Types::EventType], null: false do
+      argument :id, ID, required: true
+      argument :range, Integer, required: true
+    end
+
+    def user_defined(id:, range:)
+      user = User.find(id)
+      array =  ZipcodeFacade.create_zipcodes(user.zip_code, range)
+      events = []
+      array.find_all do |e|
+        match = Event.where('zip = ?', e).where('host != ?', user.id)
+        if match != []
+          events << match
+        end 
+      end 
+      events.flatten
+    end
   end
 end
