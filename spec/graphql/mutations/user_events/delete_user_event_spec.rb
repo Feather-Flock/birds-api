@@ -14,10 +14,10 @@ RSpec.describe Mutations::DeleteUserEvent, type: :request do
 
       expect(UserEvent.count).to eq(2)
 
-      post '/graphql', params: { query: destroy_query(id: @rsvp.id) }
+      post '/graphql', params: { query: destroy_query(user_id: @user2.id, event_id: @event1.id) }
 
       json = JSON.parse(response.body)
-      
+
       data = json['data']['deleteUserEvent']
 
       expect(data).to include(
@@ -29,11 +29,12 @@ RSpec.describe Mutations::DeleteUserEvent, type: :request do
     end
   end
 
-  def destroy_query(id:)
+  def destroy_query(user_id:, event_id:)
     <<~GQL
       mutation {
         deleteUserEvent(input: {
-          id: #{id}
+          userId: #{user_id}
+          eventId: #{event_id}
        }) {
           userId
           eventId
