@@ -8,8 +8,8 @@ RSpec.describe Mutations::CreateEvent, type: :request do
       expect(Event.count).to eq(0)
       expect(UserEvent.count).to eq(0)
 
-      post '/graphql', params: { query: query(user_id: user.id) }
-
+      data = post '/graphql', params: { query: query(user_id: user.id) }
+      
       expect(Event.count).to eq(1)
       expect(UserEvent.count).to eq(1)
       expect(Event.last.rsvps).to eq(1)
@@ -32,7 +32,8 @@ RSpec.describe Mutations::CreateEvent, type: :request do
         'city' => 'Denver',
         'state' => 'CO',
         'zip' => 80211,
-        'host' => user.id
+        'host' => user.id,
+        'slug' => "/us/colorado/denver/80220/1105-quebec-st-39.733024,-104.903460"
       )
     end
   end
@@ -60,7 +61,8 @@ RSpec.describe Mutations::CreateEvent, type: :request do
             city: "Denver",
             state: "CO",
             zip: 80211,
-            host: #{user_id}
+            host: #{user_id},
+            slug: "/us/colorado/denver/80220/1105-quebec-st-39.733024,-104.903460"
          }) { event {
             title
             description
@@ -73,6 +75,7 @@ RSpec.describe Mutations::CreateEvent, type: :request do
             lat
             lng
             host
+            slug
           }
         }
       }
@@ -90,7 +93,8 @@ RSpec.describe Mutations::CreateEvent, type: :request do
           city: "Denver",
           state: "CO",
           zip: 80211,
-          host: #{user_id}
+          host: #{user_id},
+          slug: "/us/colorado/denver/80220/1105-quebec-st-39.733024,-104.903460"
        }) { event {
           title
           description
@@ -103,6 +107,7 @@ RSpec.describe Mutations::CreateEvent, type: :request do
           lat
           lng
           host
+          slug
           }
         }
       }
