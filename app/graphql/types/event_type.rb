@@ -17,8 +17,9 @@ module Types
     field :zip, Integer
     field :host, Integer
     field :rsvps, Integer
+    field :slug, String
 
-    field :creator, Types::UserType, null: false do 
+    field :creator, Types::UserType, null: false do
       argument :id, Integer, required: true
     end
 
