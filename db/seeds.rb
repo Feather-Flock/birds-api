@@ -34,6 +34,3 @@ event11 = user5.events.create(title: 'Farmers Market Picnic', description: 'Buyi
                              date: '2022-09-19', lat: '39.762', lng: '-105.058', address: '5508 W 32nd Ave', city: 'Wheat Ridge', state: 'CO', zip: 80214, host: user5.id)
 event12 = user6.events.create(title: 'Go fly a kite!',
                              description: "Flying some kites for a few hours, come say hi even if you dont have one!", time: '14:00:00', date: '2022-10-17', lat: '39.780', lng: '-105.047', address: '4601 W 46th Ave', city: 'Denver', state: 'CO', zip: 80212, host: user6.id)
-=======
-                             description: "We will be celebrating Steven's 11th birthday!", time: '18:00:00', date: '2022-10-20', lat: '39.735', lng: '-104.908', address: '6820 E 12th Ave', city: 'Denver', state: 'CO', zip: 80220, host: user3.id, slug:  "/us/colorado/denver/80220-2905/6820-e-12th-ave-39.735623,-104.909402")
-
