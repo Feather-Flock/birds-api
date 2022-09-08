@@ -4,12 +4,12 @@
   <summary>Table of Contents</summary>
   <ol>
     </li>
-    <li><a href="#project-overview">Project Overview</a></li>
-    <li><a href="#built-with">Built With</a></li>
-    <li><a href="#schema">Schema</a></li>
-    <li><a href="#api-endpoints">API Endpoints</a></li>
-    <li><a href="#local-setup">Local Setup</a></li>
-    <li><a href="#contributors">Contributors</a></li>
+    <li><a href="#flamingo-project-overview">Project Overview</a></li>
+    <li><a href="#flamingo-built-with">Built With</a></li>
+    <li><a href="#flamingo-schema">Schema</a></li>
+    <li><a href="#flamingo-api-endpoints">API Endpoints</a></li>
+    <li><a href="#flamingo-local-setup">Local Setup</a></li>
+    <li><a href="#flamingo-contributors">Contributors</a></li>
   </ol>
 </details>
 
