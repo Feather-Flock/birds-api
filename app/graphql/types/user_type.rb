@@ -13,6 +13,8 @@ module Types
     field :lat, Float
     field :lng, Float
 
+    field :errors, [String], null: false
+
     field :rsvpd_events, [Types::EventType], null: false do
       argument :id, ID, required: true
     end
@@ -57,7 +59,14 @@ module Types
           events << match
         end 
       end 
-      events.flatten
+      if events.empty? 
+        {
+        events: nil,
+        errors: "No Events in this Area"
+        }
+      else
+        events.flatten
+      end
     end
   end
 end
