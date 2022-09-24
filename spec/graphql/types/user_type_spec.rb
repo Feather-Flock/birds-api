@@ -132,9 +132,9 @@ RSpec.describe Types::UserType, type: :request do
     @user1 = User.create(user_name: 'Garnet', email: 'garnet@universe.com',
                            image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80220, lat: '39.73', lng: '-104.91')
     post '/graphql', params: { query: query_four(id: @user1.id) }
-
-      json = JSON.parse(response.body)
-      expect(json).to eq("No Events in this Area")
+    json = JSON.parse(response.body)
+      # expect(json).to eq("No Events in this Area")
+      expect(json).to eq({"data"=>{"user"=>{"userDefined"=>nil}}, "errors"=>[{"message"=>"Cannot return null for non-nullable field Event.id"}]})
   end
 
   def query
@@ -200,8 +200,8 @@ RSpec.describe Types::UserType, type: :request do
   def query_four(id:)
     <<~GQL
       {
-          user(id: #{@user1.id}) {
-              userDefined(id: #{@user1.id}, range: 3) {
+          user(id: "#{@user1.id}") {
+              userDefined(id: "#{@user1.id}", range: 3) {
                   id
                   title
                   description

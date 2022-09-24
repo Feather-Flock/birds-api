@@ -44,7 +44,7 @@ module Types
       events.where('host != ?', user.id)
     end
 
-    field :user_defined, [Types::EventType], null: false do
+    field :user_defined, [Types::EventType], null: true do
       argument :id, ID, required: true
       argument :range, Integer, required: true
     end
@@ -60,10 +60,10 @@ module Types
         end 
       end 
       if events.empty? 
-        {
+        return [{
         events: nil,
         errors: "No Events in this Area"
-        }
+        }]
       else
         events.flatten
       end
