@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://zipcodeapi.com/rest/<zipcode_api_key>/radius.json/80220/3/miles?minimal
+    uri: https://zipcodeapi.com/rest/<zipcode_api_key>/radius.json/80516/5/miles?minimal
     body:
       encoding: US-ASCII
       string: ''
@@ -15,11 +15,11 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 429
+      message: Too Many Requests
     headers:
       Date:
-      - Sat, 24 Sep 2022 15:09:55 GMT
+      - Fri, 23 Sep 2022 19:37:25 GMT
       Server:
       - Apache/2.4.54 () OpenSSL/1.0.2k-fips
       X-Powered-By:
@@ -28,14 +28,12 @@ http_interactions:
       - h2,h2c
       Connection:
       - Upgrade
-      Vary:
-      - Accept-Encoding
-      Content-Length:
-      - '64'
+      Transfer-Encoding:
+      - chunked
       Content-Type:
-      - application/json
+      - text/html; charset=UTF-8
     body:
-      encoding: ASCII-8BIT
-      string: '{"zip_codes":["80246","80230","80206","80218","80220","80010","80207"]}'
-  recorded_at: Sat, 24 Sep 2022 15:09:55 GMT
+      encoding: UTF-8
+      string: '{"error_code":429,"error_msg":"Usage limit exceeded."}'
+  recorded_at: Fri, 23 Sep 2022 19:37:25 GMT
 recorded_with: VCR 6.1.0

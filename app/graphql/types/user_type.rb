@@ -13,6 +13,8 @@ module Types
     field :lat, Float
     field :lng, Float
 
+    field :errors, [String], null: false
+
     field :rsvpd_events, [Types::EventType], null: false do
       argument :id, ID, required: true
     end
@@ -42,7 +44,7 @@ module Types
       events.where('host != ?', user.id)
     end
 
-    field :user_defined, [Types::EventType], null: false do
+    field :user_defined, [Types::EventType], null: true do
       argument :id, ID, required: true
       argument :range, Integer, required: true
     end
@@ -57,7 +59,14 @@ module Types
           events << match
         end 
       end 
-      events.flatten
+      if events.empty? 
+        return [{
+        events: nil,
+        errors: "No Events in this Area"
+        }]
+      else
+        events.flatten
+      end
     end
   end
 end
