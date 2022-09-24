@@ -9,13 +9,5 @@ RSpec.describe ZipcodeService do
       expect(data[:zip_codes].count).to eq(3)
       expect(data[:zip_codes][0]).to be_a(String)
     end
-
-    it 'returns  zipcodes even if api rate limit is reached', :vcr do
-      data = ZipcodeService.get_zipcode_radius('80516', 5)
-
-      expect(data[:zip_codes]).to be_an(Array)
-      expect(data[:zip_codes].count).to eq(3)
-      expect(data[:zip_codes][0]).to be_a(String)
-    end
   end
 end

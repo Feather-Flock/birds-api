@@ -53,20 +53,16 @@ module Types
       user = User.find(id)
       array =  ZipcodeFacade.create_zipcodes(user.zip_code, range)
       events = []
+      if array.nil? 
+        array = [user.zip_code]
+      end
       array.find_all do |e|
         match = Event.where('zip = ?', e).where('host != ?', user.id)
         if match != []
           events << match
         end 
       end 
-      if events.empty? 
-        return [{
-        events: nil,
-        errors: "No Events in this Area"
-        }]
-      else
         events.flatten
-      end
     end
   end
 end
