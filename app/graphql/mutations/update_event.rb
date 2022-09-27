@@ -15,7 +15,7 @@ class Mutations::UpdateEvent < Mutations::BaseMutation
 
   def resolve(id:, **arguments)
     event = Event.find(id)
-      if event.update(arguments)
+    if event.update(arguments)
       { event: event }
     else
       { errors: event.errors.full_messages }

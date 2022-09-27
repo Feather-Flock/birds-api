@@ -7,5 +7,6 @@ module Types
     field :destroy_event, mutation: Mutations::DestroyEvent
     field :delete_user_event, mutation: Mutations::DeleteUserEvent
     field :create_tag, mutation: Mutations::CreateTag
+    field :update_user, mutation: Mutations::UpdateUser
   end
 end
