@@ -5,7 +5,6 @@ class Mutations::CreateTag < Mutations::BaseMutation
   field :errors, [String], null: false
 
   def resolve(title:)
-binding.pry
     tag = Tag.new(title: title)
 
     if tag.save
