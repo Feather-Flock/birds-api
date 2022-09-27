@@ -45,7 +45,7 @@ RSpec.describe Mutations::CreateUserEvent, type: :request do
           eventId
           id
           createdAt
-        }
+          }
         }
       }
     GQL
