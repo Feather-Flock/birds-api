@@ -64,5 +64,14 @@ module Types
       end 
         events.flatten
     end
+
+      field :user_tags, [Types::TagType], null: false do
+      argument :id, ID, required: true
+    end
+
+    def user_tags(id:)
+      user = User.find(id)
+      user.tags 
+    end
   end
 end
