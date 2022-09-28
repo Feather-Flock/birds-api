@@ -137,6 +137,26 @@ RSpec.describe Types::UserType, type: :request do
       expect(json).to eq({"data"=>{"user"=>{"userDefined"=>[]}}})
   end
 
+  describe '.user_tags(id:)' do
+    it 'returns all of a users tags' do 
+      @user1 = User.create(user_name: 'Garnet', email: 'garnet@universe.com',
+                          image: 'https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png', description: 'We are a married lesbian couple with kids. We love to play sports and go on adventures!', zip_code: 80220, lat: '39.73', lng: '-104.91') 
+      @user1.tags.create(title: "Sports")
+      @user1.tags.create(title: "Lesbian")
+      @user1.tags.create(title: "Adventure")
+
+      post '/graphql', params: { query: query_five(id: @user1.id) }
+
+      json = JSON.parse(response.body)
+      data = json['data']['user']['userTags']
+      expect(data).to include(
+        "title"=>"Sports", 
+        "title"=>"Lesbian", 
+        "title"=>"Adventure"
+      )
+    end
+  end
+
   def query
     <<~GQL
       {
@@ -213,6 +233,18 @@ RSpec.describe Types::UserType, type: :request do
                   host
               }
           }
+      }
+    GQL
+  end
+
+  def query_five(id:)
+    <<~GQL
+      {
+        user(id: "#{@user1.id}") {
+          userTags(id: "#{@user1.id}") {
+            title
+          }
+        }
       }
     GQL
   end
