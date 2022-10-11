@@ -31,7 +31,8 @@
 
 <!-- SCHEMA -->
 ## :flamingo: Schema
-![Screen Shot 2022-09-07 at 10 40 24 AM](https://user-images.githubusercontent.com/98491210/188933558-1cd02203-90ca-4727-90ae-745f29990226.png)
+<img width="946" alt="Screen Shot 2022-10-11 at 11 29 02 AM" src="https://user-images.githubusercontent.com/98491210/195161912-01b7ea52-16c4-4542-af26-dc0a32e09ff0.png">
+
 
 <!-- API ENDPOINTS -->
 ## :flamingo: API Endpoints
