@@ -326,6 +326,24 @@ Example Response
             ]
 ...
 ```
+:peacock: Create Tag<br>
+This endpoint creates a tag available for users to add to their profile to self identify gender, orientation, number of kids, event type, etc. 
+```ruby 
+createTag(input: {
+   title: "Sports"
+      }) 
+```
+Example Response
+```ruby
+{
+    "data": {
+        "createTag": {
+            "tag": {
+                "id": "1",
+                "title": "Sports"
+            }
+...
+```
 <!-- LOCAL SETUP -->
 ## :flamingo: Local Setup
 1. Check your versions of both Ruby(2.7.4 or later) and Rails(7.0.3.1 or later) by running the following in your command line:
