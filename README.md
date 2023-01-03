@@ -16,7 +16,7 @@
 <!-- PROJECT OVERVIEW -->
 ## :flamingo: Project Overview
 :rainbow_flag: Birds of a Feather :rainbow_flag: is an app that connects LGBTQIA2S+ families to events in their community.  Users can search the app for gatherings in their immediate vicinity or specify a radius and RSVP to events that interest them.  Users can also create and host their own events and allow other users to RSVP. The back-end of this application utilizes a PostgreSQL relational database and Graphql to accomodate requests from the front-end and communicate via internal API.<br>
-<br>:rainbow_flag: Visit the live app [here](http://www.birds-of-a-feather.net/)<br>
+<br>:rainbow_flag: Visit the live app [here](https://birds-ui.vercel.app/)<br>
 :rainbow_flag: Check out the front-end repo [here](https://github.com/Feather-Flock/birds-ui)
 
 <!-- BUILT WITH -->
