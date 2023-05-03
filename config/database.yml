@@ -17,6 +17,11 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: dpg-ch98batgk4qeoo34sn5g-a
+  port: 5432
+  database: birds_api_database
+  username: birds_api_database_user
+  password: Aa0Anq6lBxwTJDKKoVP7wRIMVf4KM3aw
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
