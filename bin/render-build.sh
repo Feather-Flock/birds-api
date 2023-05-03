@@ -3,4 +3,4 @@
 set -o errexit
 
 bundle install
-bundle rake db:{drop,create,migrate,seed}
+bundle exec rake db:{drop,create,migrate,seed}
